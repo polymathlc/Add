@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#faf9f6"><meta name="description" content="Upload science papers to CER, track durable imports and review your shared vetting list.">
+  <title>Add · CER</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23275943'/%3E%3Cpath d='M12 20h16M20 12v16' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css"><script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar"><a class="brand" href="./" aria-label="Add home"><span class="brand-icon">+</span> Add <span class="brand-sub">for CER</span></a><nav aria-label="Account"><a href="https://polymathlc.github.io/cer/" target="_blank" rel="noopener">Open CER ↗</a><span id="account" hidden></span><button id="sign-out" class="quiet" hidden>Sign out</button></nav></header>
+  <main id="main">
+    <section class="intro"><p class="eyebrow">LESS ADMIN. MORE TEACHING.</p><h1>A paper in.<br>Questions ready to review.</h1><p>Upload PDFs, then let CER extract, crop and check each question. Everything lands in your existing vetting list.</p></section>
+    <section id="login" class="panel login" aria-labelledby="login-title"><div><h2 id="login-title">Sign in to your CER account</h2><p>Use an existing administrator account. Your questions and progress stay in sync.</p></div><form id="login-form"><label>Email<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><button type="submit" class="primary">Sign in</button></form><div class="login-footer"><span>or</span><button id="google-sign-in">Continue with Google</button></div></section>
+    <p id="notice" class="notice" role="status" aria-live="polite">Connecting to CER…</p>
+    <div id="workspace" hidden>
+      <section class="panel upload-panel" aria-labelledby="upload-title"><div class="section-heading"><div><p class="eyebrow">01 / UPLOAD</p><h2 id="upload-title">Drop in your next paper</h2></div><span id="server-state" class="status pending">Checking server</span></div>
+        <div id="drop-zone" class="drop-zone"><div class="upload-icon" aria-hidden="true">↑</div><h3>Drop PDFs here</h3><p>Multiple papers welcome · up to 40 MB and 60 pages each</p><label class="button primary" for="pdf-files">Choose PDFs</label><input id="pdf-files" class="file-input" type="file" accept="application/pdf,.pdf" multiple disabled><p class="upload-note">Keep this page open while files upload. After <strong>“Stored online”</strong>, processing continues with your browser closed.</p></div>
+        <details class="upload-settings"><summary>Paper settings <span>Optional</span></summary><div class="settings-grid"><label>School level<select id="level"><option value="">Auto / mixed levels</option><option>P3</option><option>P4</option><option>P5</option><option>P6</option><option>S1</option></select></label><label>Release date<input id="release" type="date"></label><label class="wide">Additional reading instructions<textarea id="instructions" rows="2" maxlength="10000" placeholder="For example: this paper covers forces and energy."></textarea></label></div></details>
+        <div class="process-note"><span aria-hidden="true">✓</span><p>Automatic traffic light checks and repair attempts. Original scans are preserved. Remaining issues stay visible for your review.</p></div>
+        <div id="uploads" aria-live="polite"></div>
+      </section>
+      <section class="panel" aria-labelledby="imports-title"><div class="section-heading"><div><p class="eyebrow">02 / PROCESS</p><h2 id="imports-title">Paper progress</h2></div><button id="refresh" class="quiet">Refresh</button></div><div id="jobs"><p class="empty">Your uploaded papers will appear here.</p></div></section>
+      <section class="vetting" aria-labelledby="vetting-title"><div class="section-heading"><div><p class="eyebrow">03 / REVIEW</p><h2 id="vetting-title">Your CER vetting list <span id="question-count" class="count">0</span></h2><p id="sync-state" class="muted">Connecting to the shared list…</p></div><button id="preview-all" class="primary" disabled>Preview all ↗</button></div><div class="filters"><label class="search-label"><span class="sr-only">Search questions</span><input id="search" type="search" placeholder="Search title, topic or paper…"></label><label><span class="sr-only">Filter checks</span><select id="quality-filter"><option value="all">All checks</option><option value="green">Green · checked</option><option value="amber">Yellow · review</option><option value="red">Red · review</option><option value="pending">Not checked / out of date</option></select></label><label><span class="sr-only">Filter paper</span><select id="paper-filter"><option value="all">All papers</option></select></label></div><div id="questions" class="questions"><p class="empty">Questions will appear as CER saves them.</p></div></section>
+    </div>
+  </main>
+  <footer>Connected to your CER question bank. Final approval stays in Vetting.</footer>
+  <dialog id="preview-dialog" aria-labelledby="preview-title"><div class="preview-heading"><div><h2 id="preview-title">Exported preview</h2><p>Same worksheet layout and editing tools as CER.</p></div><button id="close-preview" aria-label="Close exported preview">Close ×</button></div><p id="preview-loading" class="preview-loading" role="status">Opening CER… Sign in inside the preview if prompted.</p><iframe id="preview-frame" title="CER exported worksheet preview" referrerpolicy="strict-origin-when-cross-origin"></iframe></dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="notice error">Enable JavaScript to sign in and upload PDFs.</p></noscript>
+</body>
+</html>
+
+

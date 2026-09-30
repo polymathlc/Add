@@ -1,0 +1,8 @@
+{
+  "name": "cer-rapid-add",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test tests/*.test.mjs", "check": "node --check app.js && node --check import-core.js && node --check view.js" },
+  "engines": { "node": ">=22" }
+}
